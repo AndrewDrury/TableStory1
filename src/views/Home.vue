@@ -5,7 +5,7 @@
         <b-col>
           <h1 class="pb-4">Hi! I am --------.</h1>
           <h2>I am an ASL interpreter.</h2>
-          <h2>I can help to create seamless interactions!</h2>
+          <h2>I can help create seamless interactions!</h2>
           <h5 class="pt-4">Say or sign <strong>'Start Conversation'</strong> to begin your experience.</h5>
         </b-col>
       </b-row>
