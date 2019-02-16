@@ -4,6 +4,8 @@ import router from './router'
 import './registerServiceWorker'
 import "bootstrap/scss/bootstrap.scss"
 import BootstrapVue from 'bootstrap-vue'
+import '@/assets/variableOveride.scss'
+import '@/assets/main.scss'
 
 Vue.use(BootstrapVue)
 
