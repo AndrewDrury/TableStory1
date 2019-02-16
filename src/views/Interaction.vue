@@ -1,6 +1,5 @@
 <template>
   <div class="interaction verticalCenter">
-    <h1>This is the interaction page</h1>
     <video autoplay id="webcam" class="d-flex align-items-start"></video>
   </div>
 </template>
