@@ -2,7 +2,14 @@
   <div class="interaction">
     <b-row>
       <b-col md=4>
-        <video autoplay id="webcam"></video>
+        <video ref="video" id="webcam" width="640" height="480" autoplay></video>
+				<canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
+				<b-btn id="snap" v-on:click="capture()">Snap Photo</b-btn>
+				<ul>
+            <li v-for="c in captures">
+                <img v-bind:src="c" height="50" />
+            </li>
+        </ul>
       </b-col>
       <b-col md=8 class="text-right">
         <div>
@@ -31,7 +38,8 @@ export default {
   },
   data: () => ({
     runtimeTranscription: '',
-    transcription: []
+		transcription: [],
+		captures: []
   }),
   methods: {
     checkApi: function () {
@@ -64,7 +72,12 @@ export default {
         recognition.start()
       })
       recognition.start()
-    }
+		},
+		capture() {
+			this.canvas = this.$refs.canvas;
+			var context = this.canvas.getContext("2d").drawImage(document.getElementById("webcam"), 0, 0, document.getElementById("webcam").width, document.getElementById("webcam").height);
+			this.captures.push(canvas.toDataURL("image/png"));
+		}
   },
   mounted () {
     this.checkApi()
@@ -77,12 +90,12 @@ export default {
         let webcam = devices.filter(
           v =>
             v.deviceId ==
-            'e475244503d345de8725c3dfab14230363442b16143e7da6212a68dd6640e04b'
+            'c5f9e26a7872c93b123bfa7023baecee3984356658c573d6c7e24f4e07e8b3c0'
         )[0]
         let mic = devices.filter(
           v =>
             v.deviceId ==
-            'a11891fa0ad40f76ef3b21896c9afb54ce502971348678ad87cd554317c42d55'
+            'a54f598b6bedb363b459c7158a4563025f11910198f2456bb4f9fe72537ce601'
         )[0]
         if (!webcam) {
           console.log('No web!')
@@ -95,7 +108,7 @@ export default {
           audio: false,
           video: {
             deviceId: { ideal: webcam.deviceId },
-            width: { ideal: window.innerWidth / 3 },
+            width: { ideal: window.innerWidth },
             height: { ideal: window.innerHeight }
           }
         }

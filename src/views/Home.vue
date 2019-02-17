@@ -38,7 +38,6 @@ export default Vue.extend({
   components: {
     HelloWorld
   }
-
-})
+});
 </script>
-`
+
