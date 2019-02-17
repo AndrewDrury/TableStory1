@@ -40,8 +40,8 @@ export default {
   },
   data: () => ({
     runtimeTranscription: '',
-		transcription: [],
-		captures: []
+    transcription: [],
+    captures: []
   }),
   methods: {
     checkApi: function () {
@@ -74,12 +74,12 @@ export default {
         recognition.start()
       })
       recognition.start()
-		},
-		capture() {
-			this.canvas = this.$refs.canvas;
-			var context = this.canvas.getContext("2d").drawImage(document.getElementById("webcam"), 0, 0, document.getElementById("webcam").width, document.getElementById("webcam").height);
-			this.captures.push(canvas.toDataURL("image/png"));
-		}
+    },
+    capture () {
+      this.canvas = this.$refs.canvas
+      var context = this.canvas.getContext('2d').drawImage(document.getElementById('webcam'), 0, 0, document.getElementById('webcam').width, document.getElementById('webcam').height)
+      this.captures.push(canvas.toDataURL('image/png'))
+    }
   },
   mounted () {
     this.checkApi()
@@ -92,12 +92,12 @@ export default {
         let webcam = devices.filter(
           v =>
             v.deviceId ==
-            'c5f9e26a7872c93b123bfa7023baecee3984356658c573d6c7e24f4e07e8b3c0'
+            'a11891fa0ad40f76ef3b21896c9afb54ce502971348678ad87cd554317c42d55'
         )[0]
         let mic = devices.filter(
           v =>
             v.deviceId ==
-            'a54f598b6bedb363b459c7158a4563025f11910198f2456bb4f9fe72537ce601'
+            'e475244503d345de8725c3dfab14230363442b16143e7da6212a68dd6640e04b'
         )[0]
         if (!webcam) {
           console.log('No web!')

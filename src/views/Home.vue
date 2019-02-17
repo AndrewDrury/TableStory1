@@ -33,7 +33,6 @@ em {
   color: #303030;
 }
 
-
 .line-1{
     position: relative;
     margin: 0 auto;
@@ -42,7 +41,7 @@ em {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-50%);    
+    transform: translateY(-50%);
 }
 
 /* Animation */
@@ -61,18 +60,72 @@ em {
 
 </style>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import HelloWorld from '@/components/HelloWorld.vue'
+
+var recognition
 
 export default Vue.extend({
   name: 'home',
   components: {
     HelloWorld
+  },
+  props: {
+    lang: {
+      type: String,
+      default: 'en-US'
+    }
+  },
+  data: () => ({
+    runtimeTranscription: '',
+    transcription: []
+  }),
+  methods: {
+    onRec (event) {
+      const text = Array.from(event.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('')
+      this.runtimeTranscription = text
+    },
+    onRecEnd () {
+      if (this.runtimeTranscription !== '') {
+        console.log(this.runtimeTranscription)
+        if (this.runtimeTranscription.includes('start conversation')) {
+          recognition.removeEventListener('result', this.onRec)
+          recognition.removeEventListener('end', this.onRecEnd)
+          this.$router.push('interaction')
+        }
+        this.transcription.push(this.runtimeTranscription)
+        this.$emit('onTranscriptionEnd', {
+          transcription: this.transcription,
+          lastSentence: this.runtimeTranscription
+        })
+      }
+      this.runtimeTranscription = ''
+      recognition.start()
+    },
+    checkApi: function () {
+      window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+      if (!SpeechRecognition && process.env.NODE_ENV !== 'production') {
+        throw new Error('Speech Recognition does not exist on this browser. Use Chrome or Firefox')
+      }
+      if (!SpeechRecognition) {
+        return
+      }
+      recognition = new SpeechRecognition()
+      recognition.lang = this.lang
+      recognition.interimResults = true
+      recognition.addEventListener('result', this.onRec)
+      recognition.addEventListener('end', this.onRecEnd)
+      recognition.start()
+    }
+  },
+  mounted () {
+    this.checkApi()
   }
 
-});
-
+})
 
 </script>
-
