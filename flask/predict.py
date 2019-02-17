@@ -8,7 +8,7 @@ def predict(img):
     r = requests.post(url, headers=headers, data=data)
     print(type(r.text))
     predictions = json.loads(r.text)['predictions']
-    return predictions[0]['tagName']
+    return predictions
 
 if __name__ == "__main__":
     predict('test1.png')
