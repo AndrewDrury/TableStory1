@@ -1,25 +1,27 @@
 <template>
   <div class="interaction">
-    <b-row>
-      <b-col md=4>
-        <video ref="video" id="webcam" width="640" height="480" autoplay></video>
-				<canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
-				<b-btn id="snap" v-on:click="capture()">Snap Photo</b-btn>
-				<ul>
-            <li v-for="c in captures">
-                <img v-bind:src="c" height="50" />
-            </li>
-        </ul>
-      </b-col>
-      <b-col md=8 class="text-right">
-        <div>
-          <span>
-            <p v-for="word in transcription">{{ word }}</p>
-            <p>{{ runtimeTranscription }}</p>
-          </span>
-        </div>
-      </b-col>
-    </b-row>
+		<b-container fluid class="">
+			<b-row>
+				<b-col md=4>
+					<video ref="video" id="webcam" width="640" height="480" autoplay></video>
+					<canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
+					<b-btn id="snap" v-on:click="capture()">Snap Photo</b-btn>
+					<ul>
+							<li v-for="c in captures">
+									<img v-bind:src="c" height="50" />
+							</li>
+					</ul>
+				</b-col>
+				<b-col md=8 class="text-right">
+					<div>
+						<span>
+							<p v-for="word in transcription">{{ word }}</p>
+							<p>{{ runtimeTranscription }}</p>
+						</span>
+					</div>
+				</b-col>
+			</b-row>
+		</b-container>
   </div>
 </template>
 
