@@ -17,7 +17,7 @@ export default new Router({
     {
       path: '/interaction',
       name: 'interaction',
-      
+
       component: () => import(/* webpackChunkName: "interaction" */ './views/Interaction.vue')
     }
   ]
