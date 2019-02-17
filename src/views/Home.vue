@@ -4,10 +4,14 @@
       <b-row>
         <b-col>
           <h1 class="line-1 anim-typewriter">Hi! I am <strong>sli.ai</strong></h1>
-          <transition
-          <h2>I am a sign language interpreter.</h2>
-          <h2>I use AI to help create seamless interactions!</h2>
-          <h5 class="pt-4"><i>Sign or say <em>Start Conversation</em> to begin your experience.</i></h5>
+          <transition name="fade">
+            <h2>I am a sign language interpreter.</h2>
+          </transition>
+              <h2>I use AI to help create seamless interactions!</h2>
+              <h5 class="pt-4"><i>Sign or say <em>Start Conversation</em> to begin your experience.</i></h5>
+
+          
+          
         </b-col>
       </b-row>
     </b-container>
@@ -58,6 +62,7 @@ em {
   to{border-right-color: transparent;}
 }
 
+
 </style>
 
 <script>
@@ -79,7 +84,14 @@ export default Vue.extend({
   },
   data: () => ({
     runtimeTranscription: '',
-    transcription: []
+    transcription: [],
+    items: [
+        0,
+        1,
+        2,
+        3,
+        4,
+      ]
   }),
   methods: {
     onRec (event) {
