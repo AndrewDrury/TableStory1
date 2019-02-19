@@ -3,7 +3,7 @@
     <b-container fluid class="verticalCenter">
       <b-row>
         <b-col>
-          <h1 class="line-1 anim-typewriter">Hi! I am <strong>sli.ai</strong></h1>
+          <h1 class="line-1 anim-typewriter pb-1" style="font-size: 120px">Hi! I am <strong>sli.ai</strong></h1>
           <transition name="fade">
             <h2>I am a sign language interpreter.</h2>
           </transition>

@@ -1,10 +1,11 @@
 <template>
   <div class="interaction">
-		<b-container fluid class="">
-			<b-row>
+		<b-container fluid>
+			<b-row class="pt-1">
 				<b-col md=4>
-					<video ref="video" id="webcam" width="640" height="480" autoplay></video>
-					<canvas ref="canvas" id="canvas" width="640" height="480"></canvas>
+          <h2 class="float-left">Signer</h2>
+					<video class="float-left mt-0 pt-0" ref="video" id="webcam" width="640" height="480" autoplay></video>
+					<canvas ref="canvas" id="canvas" width="0" height="0"></canvas>
 					<!-- <b-btn id="snap" v-on:click="capture()">Snap Photo</b-btn> -->
 					<!-- <ul>
 							<li v-for="c in captures">
@@ -13,8 +14,9 @@
 					</ul> -->
 				</b-col>
 				<b-col md=8 class="text-right">
+          <h2>Speaker</h2>
 					<div>
-						<span>
+						<span class="bigText">
 							<p v-for="word in transcription">{{ word }}</p>
 							<p>{{ runtimeTranscription }}</p>
 						</span>
@@ -27,6 +29,10 @@
 
 <style lang="scss">
 @import url("/src/assets/main.scss");
+
+span {
+  font-size: 1.3em;
+}
 </style>
 
 <script>
@@ -127,7 +133,7 @@ export default {
         let mic = devices.filter(
           v =>
             v.deviceId ==
-            'e475244503d345de8725c3dfab14230363442b16143e7da6212a68dd6640e04b'
+            'a54f598b6bedb363b459c7158a4563025f11910198f2456bb4f9fe72537ce601'
         )[0]
         if (!webcam) {
           console.log('No web!')
