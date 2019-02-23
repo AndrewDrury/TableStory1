@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Welcome from './views/Welcome.vue'
 import Project from './views/Project.vue'
 
 Vue.use(Router)
@@ -11,14 +11,44 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'welcome',
+      component: Welcome
     },
     {
-      path: '/interaction',
-      name: 'interaction',
+      path: '/my-profile',
+      name: 'my-profile',
       
-      component: () => import(/* webpackChunkName: "interaction" */ './views/Interaction.vue')
+      component: () => import(/* webpackChunkName: "my-profile" */ './views/MyProfile.vue')
+    },
+    {
+      path: '/build-profile',
+      name: 'build-profile',
+      
+      component: () => import(/* webpackChunkName: "build-profile" */ './views/BuildProfile.vue')
+    },
+    {
+      path: '/discover-dishes',
+      name: 'discover-dishes',
+      
+      component: () => import(/* webpackChunkName: "discover-dishes" */ './views/DiscoverDishes.vue')
+    },
+    {
+      path: '/discover-places',
+      name: 'discover-places',
+      
+      component: () => import(/* webpackChunkName: "discover-places" */ './views/DiscoverPlaces.vue')
+    },
+    {
+      path: '/other-profile',
+      name: 'other-profile',
+      
+      component: () => import(/* webpackChunkName: "other-profile" */ './views/OtherProfile.vue')
+    },
+    {
+      path: '/restaurant-profile',
+      name: 'restaurant-profile',
+      
+      component: () => import(/* webpackChunkName: "restaurant-profile" */ './views/RestaurantProfile.vue')
     }
   ]
 })

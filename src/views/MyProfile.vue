@@ -1,15 +1,19 @@
 <template>
-  <div class="interaction verticalCenter">
-    <video autoplay id="webcam" class="d-flex align-items-start"></video>
+  <div class="my-profile verticalCenter">
+		<b-container fluid class="p-0 verticalCenter">
+      <b-row>
+        <b-col>
+          <h1>My Profile</h1>
+					<video autoplay id="webcam" class="d-flex align-items-start"></video>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 
 <style lang="scss">
 @import url("/src/assets/main.scss");
-.verticalCenter {
-  height: 100vh;
-}
 </style>
 
 <script>

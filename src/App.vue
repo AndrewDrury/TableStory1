@@ -4,13 +4,19 @@
     <b-navbar toggleable="md" type="dark" variant="dark" class="d-fixed">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-      <b-navbar-brand href="/">ASL Thingy</b-navbar-brand>
+      <b-navbar-brand href="/">Table Story</b-navbar-brand>
 
       <b-collapse is-nav id="nav_collapse">
 
         <!-- Right aligned nav items, collapsed on mobile -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item to="/interaction" right>Interaction</b-nav-item>
+          <b-nav-item to="/welcome" right>Welcome</b-nav-item>
+          <b-nav-item to="/build-profile" right>Build Profile</b-nav-item>
+          <b-nav-item to="/discover-dishes" right>Discover Dishes</b-nav-item>
+          <b-nav-item to="/discover-places" right>Discover Places</b-nav-item>
+          <b-nav-item to="/restaurant-profile" right>Restaurant Profile</b-nav-item>
+          <b-nav-item to="/other-profile" right>Other Profile</b-nav-item>
+          <b-nav-item to="/my-profile" right>My Profile</b-nav-item>
         </b-navbar-nav>
 
       </b-collapse>
@@ -40,6 +46,6 @@ import Vue from 'vue'
  // @ is an alias to /src
 
 export default Vue.extend({
-  name: 'home'
+  name: 'welcome'
 })
 </script>
